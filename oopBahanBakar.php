@@ -39,15 +39,14 @@ class Beli extends Shell {
         return $hargaPerLiter;
     }
     
-    public function hargaPPN() {
-        $get2 = $this->getHarga();
-        $hargaPPN = $get2[$this->jenis] * $this->ppn;
-        return $hargaPPN;
-    }
-
     public function hargaDasar() {
         $hargaNormal = $this->jumlah * $this->hargaPerLiter();
         return $hargaNormal;
+    }
+
+    public function hargaPPN() {
+        $hargaPPN = $this->hargaDasar() * $this->ppn;
+        return $hargaPPN;
     }
 
     public function totalHarga() {
@@ -68,4 +67,3 @@ class Beli extends Shell {
     }
 }
 
-?>
